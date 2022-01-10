@@ -11,11 +11,6 @@ import (
 // 参数：
 func (ding *DingTalkEnter) GetAccessToken() (accessToken string, err error) {
 
-	// 判断是否有Access Token
-	if ding.AccessToken != "" {
-		return ding.AccessToken, nil
-	}
-
 	// 通过API获取AccessToken
 	url := fmt.Sprintf("https://oapi.dingtalk.com/gettoken?appkey=%s&appsecret=%s", ding.AppKey, ding.AppSecret)
 
@@ -29,8 +24,6 @@ func (ding *DingTalkEnter) GetAccessToken() (accessToken string, err error) {
 			resp.Errcode, resp.Errmsg)
 		return "", errors.New(msg)
 	}
-
-	ding.AccessToken = resp.AccessToken
 
 	return resp.AccessToken, nil
 }

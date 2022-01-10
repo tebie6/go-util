@@ -14,10 +14,10 @@ func Test_SendWorkMessage(t *testing.T)  {
 		AgentId:     0,
 		AppKey:      "",
 		AppSecret:   "",
-		AccessToken: "",
 	}
 
-	if token, err := ding.GetAccessToken(); err != nil {
+	token, err := ding.GetAccessToken()
+	if err != nil {
 		t.Error(err.Error())
 	} else {
 		log.Println("Token:", token)
@@ -38,7 +38,7 @@ func Test_SendWorkMessage(t *testing.T)  {
 		Msg:        msg,
 	}
 
-	resp, err := ding.SendWorkMessage(&workMessage)
+	resp, err := ding.SendWorkMessage(token, &workMessage)
 	if err != nil {
 		t.Error(err.Error())
 		return

@@ -5,7 +5,6 @@ type DingTalkEnter struct {
 	AgentId     int64  `json:"agent_id"`     // 钉钉应用ID
 	AppKey      string `json:"app_key"`      // 应用唯一KEY
 	AppSecret   string `json:"app_secret"`   // 应用密钥
-	AccessToken string `json:"access_token"` // Access Token
 }
 
 type ApiResponse struct {

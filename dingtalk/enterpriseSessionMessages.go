@@ -10,7 +10,7 @@ import (
 // Method: POST
 // URL:	https://oapi.dingtalk.com/topapi/message/corpconversation/asyncsend_v2?access_token=ACCESS_TOKEN
 // 参数：
-func (ding *DingTalkEnter) SendWorkMessage(workMessage *WorkMessage) (*ApiResponse, error) {
+func (ding *DingTalkEnter) SendWorkMessage(accessToken string, workMessage *WorkMessage) (*ApiResponse, error) {
 	var err error
 
 	// 设置AgentId
@@ -22,7 +22,7 @@ func (ding *DingTalkEnter) SendWorkMessage(workMessage *WorkMessage) (*ApiRespon
 	}
 
 	// 请求url
-	url := fmt.Sprintf("https://oapi.dingtalk.com/topapi/message/corpconversation/asyncsend_v2?access_token=%s", ding.AccessToken)
+	url := fmt.Sprintf("https://oapi.dingtalk.com/topapi/message/corpconversation/asyncsend_v2?access_token=%s", accessToken)
 	postData, err := json.Marshal(workMessage)
 	if err != nil {
 		return nil, err

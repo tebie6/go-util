@@ -13,7 +13,6 @@ func Test_getAccessToken(t *testing.T)  {
 		AgentId:     0,
 		AppKey:      "",
 		AppSecret:   "",
-		AccessToken: "",
 	}
 
 	if token, err := ding.GetAccessToken(); err != nil {

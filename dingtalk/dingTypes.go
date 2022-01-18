@@ -2,9 +2,9 @@ package dingtalk
 
 // 企业内部应用
 type DingTalkEnter struct {
-	AgentId     int64  `json:"agent_id"`     // 钉钉应用ID
-	AppKey      string `json:"app_key"`      // 应用唯一KEY
-	AppSecret   string `json:"app_secret"`   // 应用密钥
+	AgentId   int64  `json:"agent_id"`   // 钉钉应用ID
+	AppKey    string `json:"app_key"`    // 应用唯一KEY
+	AppSecret string `json:"app_secret"` // 应用密钥
 }
 
 type ApiResponse struct {
@@ -14,6 +14,9 @@ type ApiResponse struct {
 	ExpiresIn   string `json:"access_token_expires,omitempty"` // Access Token 有效期
 	TaskId      int64  `json:"task_id,omitempty"`              // 任务ID，比如：发送消息
 	RequestID   string `json:"request_id,omitempty"`           // 请求ID，比如：发送消息的响应
+	Result      struct {
+		Userid string `json:"userid,omitempty"` // 用户ID，比如：获取用户信息
+	} `json:"result,omitempty"`
 }
 
 // 消息类型与数据格式

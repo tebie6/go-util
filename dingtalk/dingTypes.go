@@ -24,11 +24,16 @@ type ApiResponse struct {
 type DingTalkMessage struct {
 	MsgType string   `json:"msgtype"`        // 消息类型
 	Text    *TextMsg `json:"text,omitempty"` // MsgType是text的消息内容
+	File    *FileMsg `json:"file,omitempty"` // MsgType是file的消息内容
 }
 
 // 文本消息（text）
 type TextMsg struct {
 	Content string `json:"content"` // 文本消息内容
+}
+
+type FileMsg struct {
+	MediaId	string	`json:"media_id"` // 文件消息内容
 }
 
 // 发送工作通知

@@ -17,6 +17,8 @@ type ApiResponse struct {
 	Result      struct {
 		Userid string `json:"userid,omitempty"` // 用户ID，比如：获取用户信息
 	} `json:"result,omitempty"`
+	MediaId string `json:"media_id,omitempty"` // 媒体文件上传后获取的唯一标识。
+	Type    string `json:"type,omitempty"`     // 媒体文件类型：image：图片、voice：语音、file：普通文件、video：视频
 }
 
 // 消息类型与数据格式
@@ -33,7 +35,7 @@ type TextMsg struct {
 }
 
 type FileMsg struct {
-	MediaId	string	`json:"media_id"` // 文件消息内容
+	MediaId string `json:"media_id"` // 文件消息内容
 }
 
 // 发送工作通知
